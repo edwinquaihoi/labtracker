@@ -23,8 +23,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import au.com.ibm.labtracker.dao.Dao;
 import au.com.ibm.labtracker.dao.IUserDao;
 import au.com.ibm.labtracker.dao.relational.UserDao;
+import au.com.ibm.labtracker.dao.relational.repository.EnrollmentRepository;
 import au.com.ibm.labtracker.dao.relational.repository.Repo;
+import au.com.ibm.labtracker.dao.relational.repository.TrainingEventRepository;
 import au.com.ibm.labtracker.dao.relational.repository.UserRepository;
+import au.com.ibm.labtracker.model.relational.Enrollment;
+import au.com.ibm.labtracker.model.relational.TrainingEvent;
 
 @Configuration
 @EnableJpaRepositories(basePackages = "au.com.ibm.labtracker.dao.relational.repository")
@@ -88,5 +92,13 @@ public class ModelJPAConfig {
 		
 	@Bean @Repo public UserRepository userRepository(JpaRepositoryFactory jpaRepositoryFactory) {
 		return jpaRepositoryFactory.getRepository(UserRepository.class);
+	}
+
+	@Bean @Repo public TrainingEventRepository trainingEventRepository(JpaRepositoryFactory jpaRepositoryFactory) {
+		return jpaRepositoryFactory.getRepository(TrainingEventRepository.class);
+	}
+
+	@Bean @Repo public EnrollmentRepository EnrollmentRepository(JpaRepositoryFactory jpaRepositoryFactory) {
+		return jpaRepositoryFactory.getRepository(EnrollmentRepository.class);
 	}
 }

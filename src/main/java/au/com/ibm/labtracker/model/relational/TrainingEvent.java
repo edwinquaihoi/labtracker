@@ -13,12 +13,12 @@ import javax.persistence.Version;
 import au.com.ibm.labtracker.scaffold.AbstractMasterEntity;
 
 @Entity
-public class TrainingEvent extends AbstractMasterEntity<Long> {
+public class TrainingEvent extends AbstractMasterEntity<String> {
 
 	private static final long serialVersionUID = 3282493435258931916L;
 
 	@Id
-	private long id;
+	private String id;
 	
 	@Temporal(TemporalType.TIME)
 	private Date startDate;
@@ -38,11 +38,11 @@ public class TrainingEvent extends AbstractMasterEntity<Long> {
 		return null;
 	}
 
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -68,5 +68,13 @@ public class TrainingEvent extends AbstractMasterEntity<Long> {
 
 	public void setVersion(int version) {
 		this.version = version;
+	}
+	
+	public List<TrainingEventLab> getLabs() {
+		return labs;
+	}
+	
+	public void setLabs(List<TrainingEventLab> labs) {
+		this.labs = labs;
 	}
 }

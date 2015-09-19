@@ -10,13 +10,13 @@ public class EnrollmentPk implements Serializable {
 
 	private String appUser;
 	
-	private long trainingEvent;
+	private String trainingEvent;
 
 	public EnrollmentPk() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public EnrollmentPk(String appUser, long trainingEvent) {
+	public EnrollmentPk(String appUser, String trainingEvent) {
 		super();
 		this.appUser = appUser;
 		this.trainingEvent = trainingEvent;
@@ -30,11 +30,11 @@ public class EnrollmentPk implements Serializable {
 		this.appUser = appUser;
 	}
 
-	public long getTrainingEvent() {
+	public String getTrainingEvent() {
 		return trainingEvent;
 	}
 
-	public void setTrainingEvent(long trainingEvent) {
+	public void setTrainingEvent(String trainingEvent) {
 		this.trainingEvent = trainingEvent;
 	}
 	

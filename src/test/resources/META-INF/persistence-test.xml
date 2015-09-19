@@ -15,12 +15,17 @@
 		
 		<non-jta-data-source>test-labtracker-db</non-jta-data-source>
 		
+		<class>au.com.ibm.labtracker.model.relational.AppUser</class>
+		<class>au.com.ibm.labtracker.model.relational.TrainingEvent</class>
+		<class>au.com.ibm.labtracker.model.relational.Enrollment</class>
+		
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		
 		<properties>
-			<!-- 
+			 
 			<property name="eclipselink.logging.parameters" value="true" />
 			<property name="eclipselink.logging.level" value="FINE" />
+			<!--
 			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
 			<property name="eclipselink.ddl-generation.ouput-mode" value="database" />
 			-->

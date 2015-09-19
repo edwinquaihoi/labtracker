@@ -24,7 +24,7 @@
 		<!-- 
 		<non-jta-data-source>vams-db</non-jta-data-source>
 		-->
-		<class>au.com.ibm.labtracker.model.relational.AppUser</class>
+		<!-- <class>au.com.ibm.labtracker.model.relational.AppUser</class> -->
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		
 		<properties>

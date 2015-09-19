@@ -9,10 +9,7 @@ public class TrainingEventLab {
 	private int number;
 		
 	private String description;
-	
-	@Version
-	private int version;
-	
+		
 	public int getNumber() {
 		return number;
 	}
@@ -27,13 +24,5 @@ public class TrainingEventLab {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public int getVersion() {
-		return version;
-	}
-
-	public void setVersion(int version) {
-		this.version = version;
 	}
 }

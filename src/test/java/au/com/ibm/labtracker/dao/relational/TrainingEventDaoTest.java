@@ -62,12 +62,17 @@ public class TrainingEventDaoTest extends RelationalTests {
 		TrainingEventLab newLab = new TrainingEventLab();
 		newLab.setNumber(10);
 		newLab.setDescription("Lab 10");
-		
-		savedTrainingEvent.getLabs().add(newLab);
-		
-		savedTrainingEvent = dao.saveAndFlush(savedTrainingEvent);
+				
+		savedTrainingEvent = dao.addLab(savedTrainingEvent, newLab);
 
 		assertEquals(10, savedTrainingEvent.getLabs().size());
+		System.out.println("");
+		LOGGER.info(savedTrainingEvent.toString());
+		System.out.println("");
+
+		savedTrainingEvent = dao.deleteLab(savedTrainingEvent, newLab);
+
+		assertEquals(9, savedTrainingEvent.getLabs().size());
 		System.out.println("");
 		LOGGER.info(savedTrainingEvent.toString());
 		System.out.println("");

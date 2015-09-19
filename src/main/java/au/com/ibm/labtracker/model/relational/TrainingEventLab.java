@@ -3,6 +3,8 @@ package au.com.ibm.labtracker.model.relational;
 import javax.persistence.Embeddable;
 import javax.persistence.Version;
 
+import org.apache.commons.lang.builder.EqualsBuilder;
+
 @Embeddable
 public class TrainingEventLab {
 
@@ -24,5 +26,25 @@ public class TrainingEventLab {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}	
+
+	@Override
+	 public boolean equals(Object obj) {
+		   if (obj == null) { return false; }
+		   if (obj == this) { return true; }
+		   if (obj.getClass() != getClass()) {
+		     return false;
+		   }
+		   TrainingEventLab rhs = (TrainingEventLab) obj;
+		   return new EqualsBuilder()
+		                 .append(number, rhs.number)
+		                 .append(description, rhs.description)
+		                 .isEquals();
+	}
+	
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
 	}
 }

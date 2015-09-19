@@ -1,8 +1,12 @@
 package au.com.ibm.labtracker.model.relational;
 
+import java.io.Serializable;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 
-public class EnrollmentPk {
+public class EnrollmentPk implements Serializable {
+
+	private static final long serialVersionUID = 4133476019796534857L;
 
 	private String appUser;
 	

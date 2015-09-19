@@ -3,9 +3,9 @@ package au.com.ibm.labtracker.model.relational;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -29,7 +29,7 @@ public class TrainingEvent extends AbstractMasterEntity<Long> {
 	@Version
 	private int version;
 	
-	@OneToMany
+	@ElementCollection
 	private List<TrainingEventLab> labs;
 	
 	@Override

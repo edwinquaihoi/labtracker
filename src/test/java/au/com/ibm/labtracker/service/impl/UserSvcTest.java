@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.service.impl;
+package au.com.ibm.labtracker.service.impl;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -8,9 +8,9 @@ import javax.naming.NamingException;
 
 import org.junit.Test;
 
-import au.com.ibm.ibm.labtracker.service.ServiceTests;
 import au.com.ibm.labtracker.model.relational.AppUser;
 import au.com.ibm.labtracker.service.IUserSvc;
+import au.com.ibm.labtracker.service.ServiceTests;
 
 public class UserSvcTest extends ServiceTests {
 

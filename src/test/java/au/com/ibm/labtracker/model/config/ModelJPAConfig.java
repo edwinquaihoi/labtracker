@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.model.config;
+package au.com.ibm.labtracker.model.config;
 
 import java.sql.SQLException;
 

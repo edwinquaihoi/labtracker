@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker;
+package au.com.ibm.labtracker;
 
 import static org.jboss.arquillian.graphene.Graphene.guardAjax;
 import static org.jboss.arquillian.graphene.Graphene.guardHttp;

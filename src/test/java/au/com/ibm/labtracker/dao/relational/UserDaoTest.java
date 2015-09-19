@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.dao.relational;
+package au.com.ibm.labtracker.dao.relational;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -9,9 +9,9 @@ import javax.inject.Inject;
 
 import org.junit.Test;
 
-import au.com.ibm.ibm.labtracker.dao.RelationalTests;
 import au.com.ibm.labtracker.dao.Dao;
 import au.com.ibm.labtracker.dao.IUserDao;
+import au.com.ibm.labtracker.dao.RelationalTests;
 import au.com.ibm.labtracker.model.relational.AppUser;
 import au.com.ibm.labtracker.utils.Role;
 

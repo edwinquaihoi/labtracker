@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.service;
+package au.com.ibm.labtracker.service;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

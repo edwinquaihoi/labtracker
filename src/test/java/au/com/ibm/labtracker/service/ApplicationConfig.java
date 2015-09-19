@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.service;
+package au.com.ibm.labtracker.service;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.dao;
+package au.com.ibm.labtracker.service;
 
 import javax.transaction.Transactional;
 
@@ -7,11 +7,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
-import au.com.ibm.ibm.labtracker.model.config.ModelJPAConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { ModelJPAConfig.class })
-@TransactionConfiguration(defaultRollback = true)
 @Transactional
-public class RelationalTests {
+@TransactionConfiguration(defaultRollback = true)
+@ContextConfiguration(classes = { ApplicationConfig.class })
+public class ServiceTests {
+
 }

@@ -1,4 +1,4 @@
-package au.com.ibm.ibm.labtracker.model.test;
+package au.com.ibm.labtracker.model.test;
 
 import static junit.framework.TestCase.fail;
 

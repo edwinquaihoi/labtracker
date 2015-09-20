@@ -14,7 +14,7 @@
 
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
-		<param-value>Production</param-value>
+		<param-value>Development</param-value>
 		<!-- Make this dynamic -->
 <!-- 		<param-value>Production</param-value>
  -->	</context-param>
@@ -59,7 +59,7 @@
 	</filter-mapping>
 
 	<welcome-file-list>
-		<welcome-file>WEB-INF/templates/ronin/index.xhtml</welcome-file>
+		<welcome-file>ronin/index.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<mime-mapping>

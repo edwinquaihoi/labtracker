@@ -20,7 +20,6 @@ import au.com.ibm.labtracker.dao.IUserDao;
 import au.com.ibm.labtracker.dao.RelationalTests;
 import au.com.ibm.labtracker.model.relational.AppUser;
 import au.com.ibm.labtracker.model.relational.Enrollment;
-import au.com.ibm.labtracker.model.relational.EnrollmentPk;
 import au.com.ibm.labtracker.model.relational.Lab;
 import au.com.ibm.labtracker.model.relational.TrainingEvent;
 import au.com.ibm.labtracker.model.relational.TrainingEventLab;
@@ -89,9 +88,7 @@ public class EnrollmentDaoTest extends RelationalTests {
 		List<Lab> labs = new ArrayList<>();
 		Lab lab;
 		for(int i=1; i < 10; i++) {
-			lab = new Lab();
-			
-			lab.setNumber(i);
+			lab = new Lab(i, false);
 			labs.add(lab);
 		}
 		
@@ -107,6 +104,15 @@ public class EnrollmentDaoTest extends RelationalTests {
 		assertNotNull(savedEnrollment.getLabs());
 		assertEquals(9, savedEnrollment.getLabs().size());
 		LOGGER.info("\n" + savedEnrollment.toString() + "\n");		
+	}
+	
+	@Test
+	public void testEnrolling() {
+	
+		Enrollment enrollment = trainingEventDao.enroll(appUser, trainingEvent);
+		assertEquals(trainingEvent.getLabs().size(), enrollment.getLabs().size());
+
+		LOGGER.info("\n" + enrollment.toString() + "\n");		
 	}
 
 }

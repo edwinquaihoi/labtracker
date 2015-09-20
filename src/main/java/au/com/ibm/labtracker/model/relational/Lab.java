@@ -8,6 +8,16 @@ public class Lab {
 	private int number;
 	
 	private boolean complete;
+	
+	public Lab() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Lab(int number, boolean complete) {
+		super();
+		this.number = number;
+		this.complete = complete;
+	}
 
 	public int getNumber() {
 		return number;

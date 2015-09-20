@@ -11,8 +11,9 @@
 
 		<h:form>
         <pr:menu>
-        	<p:menuitem id="rm_trainingevent" value="Training Event" icon="fa fa-joomla" action="#{trainingEventForm.viewNewOne}" ajax="true"  update="mainContent,form"/>
-        	<p:menuitem id="rm_user" value="User" icon="fa fa-joomla" action="#{appUserForm.viewList}" ajax="true"  update="mainContent,form"/>
+        	<p:menuitem id="rm_dashboard" value="Dashboard" icon="fa fa-dashboard" ajax="true" action="#{navigationBean.dashboard}" update="mainContent,form"/>
+        	<p:menuitem id="rm_trainingevent" value="Training Event" icon="fa fa-slideshare" action="#{trainingEventForm.viewNewOne}" ajax="true"  update="mainContent,form"/>
+        	<p:menuitem id="rm_appuser" value="Application User" icon="fa fa-user" action="#{appUserForm.viewNewOne}" ajax="true"  update="mainContent,form"/>
         	<!-- 
             <p:menuitem id="rm_dashboard" value="Dashboard" icon="fa fa-joomla"/>
             <p:submenu id="rm_theme" label="Ronin Theme" icon="fa fa-trophy">

@@ -59,7 +59,7 @@
 	</filter-mapping>
 
 	<welcome-file-list>
-		<welcome-file>ronin/index.xhtml</welcome-file>
+		<welcome-file>templates/ronin/index.xhtml</welcome-file>
 	</welcome-file-list>
 
 	<mime-mapping>

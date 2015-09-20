@@ -33,7 +33,7 @@ public class TrainingEventForm extends AbstractMaintenanceForm<String, TrainingE
 
 	@Override
 	public String getEntityBusinessName() {
-		return "trainingEvent";
+		return "Training Event";
 	}
 
 	@SuppressWarnings("rawtypes")

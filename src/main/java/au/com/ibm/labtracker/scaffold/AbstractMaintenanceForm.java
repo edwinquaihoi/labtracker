@@ -176,13 +176,13 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 
 		String compactBusinessName = getEntityBusinessName().toLowerCase().replace(" ", "");
 
-		return "ui/" + compactBusinessName + "/" + compactBusinessName + ".xhtml";
+		return "/ui/" + compactBusinessName + "/" + compactBusinessName + ".xhtml";
 	}
 
 	public String getViewForList() {
 		String compactBusinessName = getEntityBusinessName().toLowerCase().replace(" ", "");
 
-		return "ui/" + compactBusinessName + "/" + compactBusinessName + "List.xhtml";
+		return "/ui/" + compactBusinessName + "/" + compactBusinessName + "List.xhtml";
 	}
 
 	public String getViewListTitle() {

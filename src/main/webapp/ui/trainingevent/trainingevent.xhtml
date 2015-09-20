@@ -1,0 +1,69 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:form id="form">
+	 	<div class="Container100">
+			<div class="ContainerIndent">
+				<div class="ShadowBox redback white">
+					<div class="Wid60 DispBlock Fleft">
+						<i class="fa fa-slideshare Fs40 Fleft MarRight10 ShowOnDesktop"/> 
+						<a href="#" class="Fs18 Wid70 DispInBlock MarTop5 Fleft white"	style="line-height: 18px;"> 
+							<i class="fa fa-twitter Fs20 Fleft MarRight10 ShowOnMobile"/> 
+							#{trainingEventForm.viewOneTitle}
+						</a> 
+						<span class="Fs12 Wid70 DispBlock Fleft ShowOnDesktop">#{trainingEventForm.sessionModel.model.id} - #{trainingEventForm.sessionModel.model.version}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div class="Container100">
+            <div class="ContainerIndent">
+                <div class="ShadowBox whiteback BlueBorderedBox">
+	                    	
+					<h:inputHidden id="version"
+						value="#{trainingEventForm.sessionModel.model.version}"
+						rendered="#{trainingEventForm.sessionModel.editMode}" />
+	
+		            <h:panelGrid id="grid" columns="3" cellpadding="5">
+		            
+		                <p:outputLabel for="id" value="Id:" />
+		                <p:inputText id="id" required="true" value="#{trainingEventForm.sessionModel.model.id}"/>
+		                <p:message for="id" />
+		
+		                <p:outputLabel for="startDate" value="Start Date:" />
+		                <p:calendar id="startDate" value="#{trainingEventForm.sessionModel.model.startDate}" pattern="dd/MM/yyyy HH:mm:ss" />
+		                <p:message for="startDate" display="text" />
+		
+		                <p:outputLabel for="endDate" value="End Date:" />
+        		        <p:calendar id="endDate" value="#{trainingEventForm.sessionModel.model.endDate}" pattern="dd/MM/yyyy HH:mm:ss" />
+		                <p:message for="endDate" display="text" />
+		                    
+		            </h:panelGrid>
+					
+                </div>
+            </div>
+        </div>
+	 	<div class="Container100">
+			<div class="ContainerIndent">
+				<div class="ShadowBox">
+					<div class="DispBlock Fright">
+					<p:commandButton id="backB" action="#{trainingEventForm.goBack()}"
+						ajax="true" update="mainContent, form, growl"
+						icon="fa fa-arrow-left"
+						styleClass="RaisedButton OrangeButton White" process="@form"
+						style="margin-right: 5px!important;margin-bottom: 5px!important;"
+						rendered="#{trainingEventForm.sessionModel.editMode}" />
+						
+					<p:commandButton id="save" action="#{trainingEventForm.save}"
+						ajax="true" update="form" icon="fa fa-save"
+						styleClass="RaisedButton white" process="@form" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</h:form>
+
+</ui:composition>

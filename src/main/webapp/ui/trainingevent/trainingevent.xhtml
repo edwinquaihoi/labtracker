@@ -7,63 +7,85 @@
 	<h:form id="form">
 	 	<div class="Container100">
 			<div class="ContainerIndent">
-				<div class="ShadowBox redback white">
+				<div class="ShadowBox orangeback white">
 					<div class="Wid60 DispBlock Fleft">
 						<i class="fa fa-slideshare Fs40 Fleft MarRight10 ShowOnDesktop"/> 
 						<a href="#" class="Fs18 Wid70 DispInBlock MarTop5 Fleft white"	style="line-height: 18px;"> 
-							<i class="fa fa-twitter Fs20 Fleft MarRight10 ShowOnMobile"/> 
-							#{trainingEventForm.viewOneTitle}
+							<i class="fa fa-twitter Fs20 Fleft MarRight10 ShowOnMobile"/>#{trainingEventForm.viewOneTitle}
 						</a> 
 						<span class="Fs12 Wid70 DispBlock Fleft ShowOnDesktop">#{trainingEventForm.sessionModel.model.id} - #{trainingEventForm.sessionModel.model.version}</span>
 					</div>
 				</div>
 			</div>
 		</div>
-        <div class="Container100">
-            <div class="ContainerIndent">
-                <div class="ShadowBox whiteback BlueBorderedBox">
-	                    	
-					<h:inputHidden id="version"
-						value="#{trainingEventForm.sessionModel.model.version}"
-						rendered="#{trainingEventForm.sessionModel.editMode}" />
-	
-		            <h:panelGrid id="grid" columns="3" cellpadding="5">
-		            
-		                <p:outputLabel for="id" value="Id:" />
-		                <p:inputText id="id" required="true" value="#{trainingEventForm.sessionModel.model.id}"/>
-		                <p:message for="id" />
 		
-		                <p:outputLabel for="startDate" value="Start Date:" />
-		                <p:calendar id="startDate" value="#{trainingEventForm.sessionModel.model.startDate}" pattern="dd/MM/yyyy HH:mm:ss" />
-		                <p:message for="startDate" display="text" />
-		
-		                <p:outputLabel for="endDate" value="End Date:" />
-        		        <p:calendar id="endDate" value="#{trainingEventForm.sessionModel.model.endDate}" pattern="dd/MM/yyyy HH:mm:ss" />
-		                <p:message for="endDate" display="text" />
-		                    
-		            </h:panelGrid>
-					
-                </div>
-            </div>
-        </div>
 	 	<div class="Container100">
 			<div class="ContainerIndent">
-				<div class="ShadowBox">
-					<div class="DispBlock Fright">
-					<p:commandButton id="backB" action="#{trainingEventForm.goBack()}"
-						ajax="true" update="mainContent, form, growl"
-						icon="fa fa-arrow-left"
-						styleClass="RaisedButton OrangeButton White" process="@form"
-						style="margin-right: 5px!important;margin-bottom: 5px!important;"
-						rendered="#{trainingEventForm.sessionModel.editMode}" />
-						
-					<p:commandButton id="save" action="#{trainingEventForm.save}"
-						ajax="true" update="form" icon="fa fa-save"
-						styleClass="RaisedButton white" process="@form" />
+					<div class="DispBlock Fleft">
+						<p:commandButton id="search" alt="Search" action="#{trainingEventForm.save}" ajax="true" update="form" icon="fa fa-search Fs16 white" process="@form" />
+						<p:commandButton id="save" alt="Save" action="#{trainingEventForm.save}" ajax="true" update="form" icon="fa fa-save Fs16 white" process="@form" />
 					</div>
-				</div>
 			</div>
 		</div>
+
+		
+        <div class="Container100">
+            <div class="ContainerIndent">
+            	<p:tabView>
+            		 
+            		<p:tab title="Main">
+
+			            <p:panelGrid styleClass="borderlessGrid">
+			            	                           
+			            	<p:row>
+			            		<p:column style="width:100px"><p:outputLabel for="id" value="Id:" /></p:column>
+			            		<p:column><p:inputText id="id" required="true" value="#{trainingEventForm.sessionModel.model.id}" disabled="#{trainingEventForm.sessionModel.editMode}"/></p:column>
+			            		<p:column><p:message for="id" /></p:column>
+			            	</p:row>
+			            	
+			            	<p:row>
+			            		<p:column><p:outputLabel for="startDate" value="Start Date:" /></p:column>
+			            		<p:column><p:calendar id="startDate" value="#{trainingEventForm.sessionModel.model.startDate}" pattern="dd/MM/yyyy HH:mm:ss" /></p:column>
+			            		<p:column><p:message for="startDate" display="text" /></p:column>
+			            	</p:row>
+
+			            	<p:row>
+			            		<p:column><p:outputLabel for="endDate" value="End Date:" /></p:column>
+			            		<p:column  colspan="1"><p:calendar id="endDate" value="#{trainingEventForm.sessionModel.model.endDate}" pattern="dd/MM/yyyy HH:mm:ss" /></p:column>
+			            		<p:column><p:message for="endDate" display="text" /></p:column>
+			            	</p:row>
+			            </p:panelGrid>
+			            
+			            <p:panelGrid styleClass="borderlessGrid">    			                			                    
+			            	<p:row>
+			            		<p:column style="width:100px"><p:outputLabel for="labsDt" value="Labs:" /></p:column>
+			            		<p:column>
+			                        <p:dataTable resizeMode="fit" id="labsDt" var="lab" value="#{trainingEventForm.sessionModel.model.labs}" rowKey="#{lab.number}" emptyMessage="No Labs" reflow="true">
+			
+			                             <p:column headerText="Number">
+			                                 <h:outputText value="#{lab.number}" />
+			                             </p:column>
+			                             
+			                             <p:column headerText="Description">
+			                                 <h:outputText value="#{lab.description}" />
+			                             </p:column>
+			                             
+			                        </p:dataTable>
+			            		</p:column>
+			            	</p:row>				            	            
+			            </p:panelGrid>
+			            
+            		</p:tab>
+            		
+            	</p:tabView>
+            			                    	
+				<h:inputHidden id="version"
+					value="#{trainingEventForm.sessionModel.model.version}"
+					rendered="#{trainingEventForm.sessionModel.editMode}" />	
+					
+            </div>
+        </div>
 	</h:form>
+	
 
 </ui:composition>

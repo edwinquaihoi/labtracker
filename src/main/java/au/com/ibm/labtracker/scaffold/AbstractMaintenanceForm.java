@@ -49,6 +49,20 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 
 	@SuppressWarnings("unchecked")
 	public String save() {
+		try {
+			T entity = (T) getService().update(getSessionModel().getModel());
+			getSessionModel().setModel(entity);
+			getSessionModel().setMode(Mode.EDIT);
+			ConfigUtil.growl("Info", "Changes saved");
+		} catch (Exception e) {
+			e.printStackTrace();
+			ConfigUtil.growl("Error", "Could not save the changes");
+		}
+		return null;
+	}
+	
+	/*
+	public String save() {
 
 		executeBeforeSave();
 
@@ -61,13 +75,14 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 			getSessionModel().setModel(en);
 			getSessionModel().setMode(Mode.EDIT);
 			ConfigUtil.growl("Info", "Changes saved");
-			executeAfterSave();
+			//executeAfterSave();
 		} catch (Exception e) {
 			e.printStackTrace();
 			ConfigUtil.growl("Error", "Could not save the changes");
 		}
 		return null;
 	}
+	*/
 
 	/**
 	 * Method for implementation classes to do some operations before saving to database
@@ -76,6 +91,7 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 	}
 
 	@SuppressWarnings("unchecked")
+	/*
 	public String saveNew() {
 		//By default New entity cannot overwrite existing blindly but it will start editing the existing entity
 		if (!canNewEntityOverwriteExisting()) {
@@ -93,18 +109,22 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 		try {
 			T newEn = (T) getService().update(getSessionModel().getModel());
 			getSessionModel().setModel(newEn);
+			getSessionModel().setMode(Mode.EDIT);
 			ConfigUtil.growl("Info", "Details saved.");
-			executeAfterSave();
+			//executeAfterSave();
 		} catch (Exception e) {
 			e.printStackTrace();
 			ConfigUtil.growl("Error", "Could not save details");
 		}
 		return null;
 	}
+	*/
 
+	/*
 	public void executeAfterSave() {
 		goBack();
 	}
+	*/
 
 	/**
 	 * True if you want to overwrite the existing entity with new one

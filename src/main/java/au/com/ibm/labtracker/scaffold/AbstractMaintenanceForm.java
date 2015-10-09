@@ -50,10 +50,12 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 	@SuppressWarnings("unchecked")
 	public String save() {
 		try {
+			executeBeforeSave();
 			T entity = (T) getService().update(getSessionModel().getModel());
 			getSessionModel().setModel(entity);
 			getSessionModel().setMode(Mode.EDIT);
 			ConfigUtil.growl("Info", "Changes saved");
+			executeAfterSave();
 		} catch (Exception e) {
 			e.printStackTrace();
 			ConfigUtil.growl("Error", "Could not save the changes");
@@ -83,12 +85,6 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 		return null;
 	}
 	*/
-
-	/**
-	 * Method for implementation classes to do some operations before saving to database
-	 */
-	public void executeBeforeSave() {
-	}
 
 	@SuppressWarnings("unchecked")
 	/*
@@ -120,11 +116,17 @@ public abstract class AbstractMaintenanceForm<K, T extends IMasterPersistentEnti
 	}
 	*/
 
-	/*
-	public void executeAfterSave() {
-		goBack();
+
+	/**
+	 * Method for implementation classes to do some operations before saving to database
+	 */
+	public void executeBeforeSave() {
+		
 	}
-	*/
+
+	public void executeAfterSave() {
+		//goBack();
+	}
 
 	/**
 	 * True if you want to overwrite the existing entity with new one

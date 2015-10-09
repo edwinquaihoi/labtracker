@@ -7,6 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
 import au.com.ibm.labtracker.model.relational.TrainingEvent;
+import au.com.ibm.labtracker.model.relational.TrainingEventLab;
 import au.com.ibm.labtracker.scaffold.AbstractMaintenanceForm;
 import au.com.ibm.labtracker.scaffold.IService;
 import au.com.ibm.labtracker.service.ITrainingEventSvc;
@@ -23,6 +24,14 @@ public class TrainingEventForm extends AbstractMaintenanceForm<String, TrainingE
 	public TrainingEvent getNewOne() {
 		TrainingEvent trainingEvent = new TrainingEvent();
 		trainingEvent.setLabs(new ArrayList<>());
+		
+		// TODO remove the next fews lines
+		TrainingEventLab lab = new TrainingEventLab();
+		lab.setDescription("Test");
+		lab.setNumber(1);
+		
+		trainingEvent.getLabs().add(lab);
+		
 		return trainingEvent;
 	}
 

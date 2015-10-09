@@ -38,7 +38,7 @@
 			            <p:panelGrid styleClass="borderlessGrid">
 			            	                           
 			            	<p:row>
-			            		<p:column style="width:100px"><p:outputLabel for="id" value="Id:" /></p:column>
+			            		<p:column style="width:60px"><p:outputLabel for="id" value="Id:" /></p:column>
 			            		<p:column><p:inputText id="id" required="true" value="#{trainingEventForm.sessionModel.model.id}" disabled="#{trainingEventForm.sessionModel.editMode}"/></p:column>
 			            		<p:column><p:message for="id" /></p:column>
 			            	</p:row>
@@ -56,18 +56,34 @@
 			            	</p:row>
 			            </p:panelGrid>
 			            
+			            <p:separator/>
+			            
 			            <p:panelGrid styleClass="borderlessGrid">    			                			                    
 			            	<p:row>
-			            		<p:column style="width:100px"><p:outputLabel for="labsDt" value="Labs:" /></p:column>
+			            		<p:column style="width:60px"><p:outputLabel for="labsDt" value="Labs:" /></p:column>
 			            		<p:column>
-			                        <p:dataTable resizeMode="fit" id="labsDt" var="lab" value="#{trainingEventForm.sessionModel.model.labs}" rowKey="#{lab.number}" emptyMessage="No Labs" reflow="true">
+			                        <p:dataTable id="labsDt" editable="true" var="lab" value="#{trainingEventForm.sessionModel.model.labs}" rowKey="#{lab.number}" emptyMessage="No Labs" reflow="true">
 			
 			                             <p:column headerText="Number">
 			                                 <h:outputText value="#{lab.number}" />
 			                             </p:column>
 			                             
 			                             <p:column headerText="Description">
-			                                 <h:outputText value="#{lab.description}" />
+											<p:cellEditor>
+		
+												<f:facet name="output">
+													<h:outputText value="#{lab.description}" />
+												</f:facet>
+		
+												<f:facet name="input">
+													<h:inputText value="#{lab.description}"/>
+												</f:facet>
+		
+											</p:cellEditor>			                             
+			                             </p:column>
+			                             
+			                             <p:column>
+			                             	<p:rowEditor/>
 			                             </p:column>
 			                             
 			                        </p:dataTable>
